@@ -3,6 +3,8 @@
 > [!Tip]
 >
 > GDUT Anyview 2024级程序设计作业 个人题解留档
+>
+> ![](https://cdn.bili33.top/gh/GamerNoTitle/Anyview-Programming2024-Reference/img/msedge_I05dTFaA18.png)
 
 > [!warning]
 >
