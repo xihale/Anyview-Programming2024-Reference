@@ -23,7 +23,7 @@ def generate_readme(root_dir, repo_url):
                 for file in c_files:
                     # 构造 GitHub 文件链接
                     file_path = os.path.join(relative_dir, file).replace("\\", "/")
-                    file_url = f"{repo_url}/blob/main/{file_path}"
+                    file_url = f"{repo_url}/blob/master/{file_path}"
                     readme_file.write(f"- [{file.replace('.c', '')}]({file_url})\n")
                 
                 readme_file.write("\n")
