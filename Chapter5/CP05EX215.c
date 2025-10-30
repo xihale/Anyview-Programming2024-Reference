@@ -1,39 +1,27 @@
-#include "allinclude.h" //DO NOT edit this line
+#include "allinclude.h"
+
 int main()
 {
-    int x, y, z, I;
-    int result = 532;
-    int flag = 0; // 完成计算的标识
-    x = 0;
-    y = 0;
-    z = 0;
-    I = 0;
-    // Add your code here
-    for (int i = 1; i <= 5; i++) // 最后结果为532，说明x一定不会大于5，且三位数说明x一定不等于0
+    // 找一个三位数，满足：百位数字*100 + 十位数字*10 + 个位数字 + 十位数字*100 + 个位数字*11 = 532
+    
+    for(int x = 0; x < 6; x++)
     {
-        for (int j = 1; j < 10; j++) // 三位数，所以y一定不等于0
+        for(int y = 0; y <= 9; y++)
         {
-            for (int k = 0; k < 10; k++)
+            for(int z = 0; z <= 9; z++)
             {
-                I = i * 100 + j * 10 + k + j * 100 + k * 10 + k;
-                if (I == result)
+                int num1 = x * 100 + y * 10 + z;
+                int num2 = y * 100 + z * 11;
+                int result = num1 + num2;
+                
+                if(result == 532)
                 {
-                    x = i;
-                    y = j;
-                    z = k;
-                    flag = 1;
-                    break;
+                    printf("x=%d, y=%d, z=%d\n", x, y, z);
+                    return 0;
                 }
             }
-            if (flag)
-            {
-                break;
-            }
-        }
-        if (flag)
-        {
-            break;
         }
     }
-    printf("x=%d,y=%d,z=%d\n", x, y, z);
+    
+    return 0;
 }

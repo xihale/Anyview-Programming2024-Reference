@@ -1,12 +1,14 @@
 #include "allinclude.h"
+
 int main(int n, int s)
-{ // Add your code here
-    for (int i = 1; i < n + 1; i++)
+{
+    s = 0;
+    
+    // 从2开始，每次加2，这样只加偶数
+    for (int i = 2; i <= n; i = i + 2)
     {
-        if ((i % 2) == 0)
-        {
-            s += i;
-        }
+        s = s + i;
     }
+    
     printf("s=%d", s);
 }

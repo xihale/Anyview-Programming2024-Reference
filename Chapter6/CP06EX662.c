@@ -1,22 +1,32 @@
 #include "allinclude.h"
 
-int main(int n, float savg, int a[][10])
+int main(int n, int ss, int a[][10])
 {
-    int ss = 0;
+    ss = 0;
 
-    // 加上第一行和最后一行
+    // 计算上边界（第一行）
     for (int i = 0; i < n; i++)
     {
-        ss += a[0][i];     // 第一行
-        ss += a[n - 1][i]; // 最后一行
+        ss += a[0][i];
     }
 
-    // 加上第一列和最后一列
+    // 计算下边界（最后一行）
+    for (int i = 0; i < n; i++)
+    {
+        ss += a[n - 1][i];
+    }
+
+    // 计算左边界（第一列，去掉四个角）
     for (int i = 1; i < n - 1; i++)
     {
-        ss += a[i][0];     // 第一列
-        ss += a[i][n - 1]; // 最后一列
+        ss += a[i][0];
     }
-    savg = (float)ss / (4 * (n - 1));
-    printf("savg=%f\n", savg);
+
+    // 计算右边界（最后一列，去掉四个角）
+    for (int i = 1; i < n - 1; i++)
+    {
+        ss += a[i][n - 1];
+    }
+
+    printf("ss=%d\n", ss);
 }

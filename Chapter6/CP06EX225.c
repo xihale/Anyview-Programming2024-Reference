@@ -1,33 +1,30 @@
 #include "allinclude.h"
+
 int main(int n, int e, int a[])
-{                            // Add your code here
-    int next = 0, index = 0; // index用来存放需要修改的位置
-    for (int i = 0; i < n; i++)
+{
+    // 从后向前遍历数组，找到第一个小于等于要插入元素的位置
+    int i;
+    for (i = 0; i < n; i++)
     {
-        if ((a[i] < e && e < a[i + 1]) || a[i] < e && (i + 1) == n)
-        // 情况1：前面的数字小于e且后面的数字大于e
-        // 情况2：前面的数字小于e且是最后一个位置
+        // 如果找到的元素大于要插入的元素
+        if (a[i] > e)
         {
-            index = i + 1;
-            next = a[i + 1];
+            // 从后向前移动元素，为新元素腾出位置
+            for (int j = n; j > i; j--)
+            {
+                a[j] = a[j-1];
+            }
+            // 在正确位置插入元素
+            a[i] = e;
             break;
         }
     }
-    for (int i = index; i < n + 1; i++)
-    {
-        if (i == index) // 对待修改位置进行修改
-        {
-            a[i] = e;
-            continue;
-        }
-        a[i] = next;
-        next = a[i + 1];
-    }
 
-    ///////DO NOT edit this section: begin////////
+    // 输出结果
     for (int i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
-    ///////DO NOT edit this section: end/////////
+
+    return 0;
 }

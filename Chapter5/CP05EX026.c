@@ -1,12 +1,14 @@
 #include "allinclude.h"
+
 int main(int n, int s)
-{ // Add your code here
-    for (int i = 1; i < n + 1; i++)
+{
+    s = 0;
+    
+    // 从1开始，每次加2，这样就是所有奇数
+    for (int i = 1; i <= n; i += 2)
     {
-        if ((i % 2) == 1)
-        {
-            s += i;
-        }
+        s += i;
     }
+    
     printf("s=%d", s);
 }
